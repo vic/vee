@@ -12,6 +12,7 @@
 	evil-plugins
 	evil-rails
 	evil-surround
+	evil-visualstar
 	enh-ruby-mode
 	go-mode
 	rust-mode
@@ -24,5 +25,7 @@
 	persp-mode
 	smart-mode-line
 	ace-jump-mode
+	magit
+	auto-complete
  ))
        
