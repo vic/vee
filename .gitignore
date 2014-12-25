@@ -3,4 +3,7 @@ el-get/
 elpa/
 *~
 *.elc
+persp-confs/
+eshell/
 smex-items
+
