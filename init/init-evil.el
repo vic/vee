@@ -6,9 +6,6 @@
 
 (define-key evil-motion-state-map (kbd "C-e") 'evil-last-non-blank)
 
-(setq evil-leader/in-all-states 1)
-(global-evil-leader-mode)
-
 (setq evil-shift-width 2)
 (setq evil-want-C-i-jump t)
 (setq evil-want-C-u-scroll t)
@@ -23,14 +20,6 @@
 (evil-set-initial-state 'grep-mode 'emacs)
 (evil-set-initial-state 'ibuffer-mode 'normal)
 
-(evil-surround-mode 1)
 (global-evil-visualstar-mode)
 
 (setq evil-esc-delay 0)
-(evil-leader/set-leader ",")
-(evil-leader/set-key
-  "p" 'persp-switch
-  "g" 'magit-status
-  "u" 'undo-tree-visualize
-  "q" 'toggle-read-only
-  )
