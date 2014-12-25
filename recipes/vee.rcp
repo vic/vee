@@ -1,0 +1,24 @@
+(:name vee
+       :description "Vic emacs environment"
+       :type builtin
+       :depends (
+	evil
+	evil-args
+	evil-exchange
+	evil-indent-textobject
+	evil-leader
+	evil-matchit
+	evil-nerd-commenter
+	evil-plugins
+	evil-rails
+	evil-surround
+	enh-ruby-mode
+	go-mode
+	rust-mode
+	alchemist
+	projectile
+	grizzl
+	darcula-theme
+	smex
+ ))
+       
