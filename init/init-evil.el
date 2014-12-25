@@ -31,4 +31,6 @@
 (evil-leader/set-key
   "p" 'persp-switch
   "g" 'magit-status
+  "u" 'undo-tree-visualize
+  "q" 'toggle-read-only
   )
