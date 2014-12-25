@@ -6,4 +6,4 @@ elpa/
 persp-confs/
 eshell/
 smex-items
-
+*.dat

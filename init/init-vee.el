@@ -27,6 +27,10 @@
 
 (vee/mac-custom)
 
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 (setq ring-bell-function (lambda nil nil))
 
 (define-key (current-global-map) [remap move-beginning-of-line] 'back-to-indentation-or-beginning)
