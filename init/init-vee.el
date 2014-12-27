@@ -35,6 +35,9 @@
 
 (define-key (current-global-map) [remap move-beginning-of-line] 'back-to-indentation-or-beginning)
 (define-key (current-global-map) [remap end-of-line] 'end-of-line-or-last-not-blank)
+(define-key (current-global-map) [(control ?+)] 'text-scale-adjust)
+(define-key (current-global-map) [(control ?-)] 'text-scale-adjust)
+(define-key (current-global-map) [(control ?0)] 'text-scale-adjust)
 
 
 (column-number-mode 1)
