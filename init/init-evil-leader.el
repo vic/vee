@@ -4,9 +4,12 @@
 (evil-leader/set-key
   "." 'evil-execute-in-emacs-state
   "," 'evil-execute-in-god-state
+  "f" 'helm-projectile
+  "g" 'helm-projectile-grep
+  "m" 'magit-status
   "p" 'persp-switch
-  "g" 'magit-status
-  "u" 'undo-tree-visualize
   "q" 'toggle-read-only
+  "u" 'undo-tree-visualize
   "v" 'helm-semantic-or-imenu
+  "x" 'helm-M-x
    )
