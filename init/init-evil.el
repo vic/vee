@@ -3,8 +3,8 @@
 (define-key evil-normal-state-map (kbd "t") 'evil-ace-jump-char-to-mode)
 (define-key evil-normal-state-map (kbd "C-S-T") 'helm-projectile-grep)
 (define-key evil-normal-state-map (kbd "C-t") 'helm-projectile)
-
-(define-key evil-motion-state-map (kbd "C-e") 'evil-last-non-blank)
+(define-key evil-normal-state-map (kbd "C-t") 'helm-projectile)
+(define-key evil-motion-state-map (kbd ";") 'evil-ex)
 
 (setq evil-shift-width 2)
 (setq evil-want-C-i-jump t)

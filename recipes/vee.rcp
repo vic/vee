@@ -2,6 +2,7 @@
        :description "Vic emacs environment"
        :type builtin
        :depends (
+	diminish
 	enh-ruby-mode
 	go-mode
 	rust-mode
