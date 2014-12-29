@@ -1,5 +1,5 @@
-(evil-define-key 'motion global-map " " 'evil-execute-in-god-state)
-(evil-define-key 'normal global-map " " 'evil-execute-in-god-state)
+(evil-define-key 'motion global-map [backspace] 'evil-execute-in-god-state)
+(evil-define-key 'normal global-map [backspace] 'evil-execute-in-god-state)
 (evil-define-key 'god global-map [backspace] 'evil-god-state-bail)
 (evil-define-key 'god global-map [escape] 'evil-god-state-bail)
 
