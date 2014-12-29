@@ -7,3 +7,6 @@ persp-confs/
 eshell/
 smex-items
 *.dat
+/.mc-lists.el
+/recentf
+/url/

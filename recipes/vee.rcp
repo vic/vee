@@ -2,17 +2,6 @@
        :description "Vic emacs environment"
        :type builtin
        :depends (
-	evil
-	evil-args
-	evil-exchange
-	evil-indent-textobject
-	evil-leader
-	evil-matchit
-	evil-nerd-commenter
-	evil-plugins
-	evil-rails
-	evil-surround
-	evil-visualstar
 	enh-ruby-mode
 	go-mode
 	rust-mode
@@ -27,5 +16,17 @@
 	ace-jump-mode
 	magit
 	auto-complete
+	multiple-cursors
+	evil
+	evil-args
+	evil-exchange
+	evil-indent-textobject
+	evil-leader
+	evil-matchit
+	evil-nerd-commenter
+	evil-plugins
+	evil-rails
+	evil-surround
+	evil-visualstar
  ))
        
