@@ -10,7 +10,6 @@
 (setq evil-complete-all-buffers nil)
 
 (setq evil-default-cursor t)
-(set-cursor-color "cyan")
 
 ;; Set the initial evil state that certain major modes will be in.
 (evil-set-initial-state 'magit-log-edit-mode 'emacs)

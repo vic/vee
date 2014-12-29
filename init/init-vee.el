@@ -56,4 +56,6 @@
 (global-evil-leader-mode 1)
 
 (require 'smyx-theme)
+
 (set-frame-font "-*-Monaco-normal-normal-normal-*-12-*-*-*-m-0-fontset-auto2")
+(set-cursor-color "cyan")
