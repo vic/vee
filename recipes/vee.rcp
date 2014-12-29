@@ -17,6 +17,7 @@
 	magit
 	auto-complete
 	multiple-cursors
+	god-mode
 	evil
 	evil-args
 	evil-exchange
@@ -28,5 +29,6 @@
 	evil-rails
 	evil-surround
 	evil-visualstar
+	evil-god-state
  ))
        

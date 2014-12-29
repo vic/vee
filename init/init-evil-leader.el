@@ -6,5 +6,5 @@
   "g" 'magit-status
   "u" 'undo-tree-visualize
   "q" 'toggle-read-only
-  "i" 'helm-semantic-or-imenu
+  "v" 'helm-semantic-or-imenu
   )

@@ -1,0 +1,3 @@
+(:name evil-god-state
+       :type github
+       :pkgname "gridaphobe/evil-god-state")
