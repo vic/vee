@@ -10,7 +10,7 @@
   "g" 'helm-projectile-grep
   "m" 'magit-status
   "p" 'persp-switch
-  "q" 'toggle-read-only
+  "q" 'kill-this-buffer
   "t" 'helm-projectile
   "u" 'undo-tree-visualize
   "v" 'helm-semantic-or-imenu
