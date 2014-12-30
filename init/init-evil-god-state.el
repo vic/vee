@@ -1,4 +1,4 @@
-(eval-after-load 'evil '(progn
+(eval-after-load 'evil-core '(progn
 			 
 (evil-define-key 'motion global-map [backspace] 'evil-execute-in-god-state)
 (evil-define-key 'normal global-map [backspace] 'evil-execute-in-god-state)
