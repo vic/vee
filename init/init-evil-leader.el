@@ -11,6 +11,7 @@
   "m" 'magit-status
   "p" 'persp-switch
   "q" 'kill-this-buffer
+  "r" 'helm-recentf
   "t" 'helm-projectile
   "u" 'undo-tree-visualize
   "v" 'helm-semantic-or-imenu

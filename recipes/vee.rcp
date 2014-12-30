@@ -4,7 +4,6 @@
        :depends (
 	diminish
 	enh-ruby-mode
-	elixir
 	go-mode
 	rust-mode
 	alchemist
