@@ -3,9 +3,11 @@
        :type builtin
        :depends (
 	diminish
+	neotree
 	enh-ruby-mode
 	go-mode
 	rust-mode
+	elixir
 	alchemist
 	projectile
 	grizzl
