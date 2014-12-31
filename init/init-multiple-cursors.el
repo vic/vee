@@ -5,7 +5,7 @@
 (defvar mc-evil-compat/mark-was-active nil)
 
 (defun mc-evil-compat/switch-to-emacs-state ()
-  (when (user-utils/evil-visual-or-normal-p)
+  (when (or (evil-visual-state-p) (evil-normal-state-p))
 
     (setq mc-evil-compat/evil-prev-state evil-state)
 

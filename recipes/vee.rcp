@@ -13,7 +13,6 @@
 	grizzl
 	smyx-theme
 	smex
-	helm
 	perspective
 	smart-mode-line
 	ace-jump-mode
@@ -21,6 +20,8 @@
 	auto-complete
 	multiple-cursors
 	god-mode
+	helm
+	helm-swoop
 	evil
 	evil-args
 	evil-exchange

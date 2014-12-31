@@ -1,10 +1,7 @@
-(defun kill-buffers-matching (regexp)
-  "Kill all the buffers matching regexp"
-  (interactive "BKill buffers matching: ")
-  (mapc  '(lambda (buffer) 
-            (and (string-match regexp (buffer-name buffer))
-                 (kill-buffer buffer)))
-         (buffer-list)))
+(setq initial-scratch-message
+	 (propertize "Don't\nPanic\n"
+		     'font-lock-face '(:height 10.0 :inherit variable-pitch))
+	 inhibit-startup-screen t)
 
 (defun end-of-line-or-last-not-blank (&optional n)
   (interactive)
@@ -59,3 +56,4 @@
 
 (set-frame-font "-*-Monaco-normal-normal-normal-*-12-*-*-*-m-0-fontset-auto2")
 (set-cursor-color "cyan")
+
