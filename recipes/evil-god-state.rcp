@@ -1,3 +1,4 @@
 (:name evil-god-state
        :type github
+       :depends (evil god-mode)
        :pkgname "gridaphobe/evil-god-state")
