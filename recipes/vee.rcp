@@ -14,7 +14,7 @@
 	smyx-theme
 	smex
 	helm
-	persp-mode
+	perspective
 	smart-mode-line
 	ace-jump-mode
 	magit
