@@ -36,10 +36,13 @@
    The mapping from normal character to twisted characters is taken
    from `twisted-mapping'."
   (interactive "p")
-  (setq last-command-char
-	(or (cdr (assq last-command-char twisted-mapping))
-	    last-command-char))
-  (self-insert-command arg)
-  (backward-char arg))
+  (let* ((initial-key (aref (this-command-keys-vector)
+                            (- (length (this-command-keys-vector)) 1)))
+	 (last-command-char
+	  (or (cdr (assq initial-key twisted-mapping))
+	      initial-key)))
+    (setq last-command-event last-command-char)
+    (self-insert-command arg)
+    (backward-char arg)))
 
 (provide 'twisted-mode)
