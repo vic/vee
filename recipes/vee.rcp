@@ -2,6 +2,7 @@
        :description "Vic emacs environment"
        :type builtin
        :depends (
+	popwin
 	diminish
 	neotree
 	enh-ruby-mode

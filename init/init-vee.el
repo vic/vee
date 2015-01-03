@@ -57,3 +57,5 @@
 (set-frame-font "-*-Monaco-normal-normal-normal-*-12-*-*-*-m-0-fontset-auto2")
 (set-cursor-color "cyan")
 
+(require 'popwin)
+(setq display-buffer-function 'popwin:display-buffer)

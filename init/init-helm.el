@@ -3,11 +3,20 @@
 (global-set-key (kbd "C-x b") 'helm-mini)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
+(defun helm-all-the-things nil
+  (interactive)
+  (helm :sources '(helm-source-findutils
+		   helm-source-recentf
+		   helm-source-bookmarks
+		   helm-source-buffers-list
+		   helm-source-locate)
+	:buffer "*helm all the things*"))
 
-(setq helm-split-window-in-side-p           t
-      helm-move-to-line-cycle-in-source     t
-      helm-ff-search-library-in-sexp        t
-      helm-scroll-amount                    8
+(require 'popwin)
+(push '("^\*helm .+\*$" :regexp t) popwin:special-display-config)
+(push '("^\*helm-.+\*$" :regexp t) popwin:special-display-config)
+
+(setq helm-ff-search-library-in-sexp        t
       helm-ff-file-name-history-use-recentf t
       helm-M-x-fuzzy-match t
       helm-buffers-fuzzy-matching t
