@@ -59,3 +59,6 @@
 
 (require 'popwin)
 (setq display-buffer-function 'popwin:display-buffer)
+
+(unless window-system
+  (menu-bar-mode -1))
