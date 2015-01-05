@@ -72,3 +72,7 @@
   (toggle-frame-fullscreen))
 
 (require 'helm-projectile)
+
+(with-current-buffer "*scratch*"
+  (insert-image (create-image "~/.emacs.d/gnu-mad.png"))
+  (insert "dont be evil"))
