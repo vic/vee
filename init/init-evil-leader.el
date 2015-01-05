@@ -3,13 +3,18 @@
 (evil-leader/set-leader "SPC")
 (evil-leader/set-key
   "SPC" 'evil-execute-in-god-state
-  "<tab>" 'persp-switch-quick-map
+  "<tab>" 'evil-window-mru
   "?" 'help-command
   "\\" 'helm-etags-select
   "b" 'helm-mini
+  "F" 'helm-projectile-find-file
   "f" 'helm-find-files
   "g" 'helm-projectile-grep
   "G" 'helm-google-suggest
+  "h" 'evil-window-left
+  "j" 'evil-window-down
+  "k" 'evil-window-up
+  "l" 'evil-window-right
   "m" 'magit-status
   "n" 'neotree-toggle
   "e" 'helm-all-the-things
