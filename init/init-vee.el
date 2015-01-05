@@ -75,4 +75,5 @@
 
 (with-current-buffer "*scratch*"
   (insert-image (create-image "~/.emacs.d/gnu-mad.png"))
-  (insert "dont be evil"))
+  (insert "(require 'evil)")
+  (goto-char (point-max)))
