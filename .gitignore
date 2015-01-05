@@ -1,3 +1,4 @@
+TAGS
 auto-save-list/
 el-get/
 elpa/
@@ -10,3 +11,4 @@ smex-items
 /.mc-lists.el
 /recentf
 /url/
+.#*

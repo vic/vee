@@ -10,25 +10,10 @@
 (evil-set-initial-state 'nav-mode 'emacs)
 (evil-set-initial-state 'grep-mode 'emacs)
 (evil-set-initial-state 'ibuffer-mode 'normal)
-(evil-set-initial-state 'neo-tree-mode 'motion)
+(evil-set-initial-state 'neotree-mode 'motion)
 
 (global-evil-visualstar-mode)
 
-
-(setq vee/tab-map
-      (let ((map (make-sparse-keymap)))
-	(define-key map [remap self-insert-command] 'vee/tab-map/self-insert)
-	(define-key map [remap delete-backward-char] 'delete-char)
-	(define-key map [remap backward-delete-char] 'delete-char)
-	(define-key map [remap backward-delete-char-untabify] 'delete-char)
-	(define-key map (kbd "<tab>") 'persp-cycle)
-	(keymap-canonicalize map)))
-(fset 'vee/tab-map vee/tab-map)
-
-
-(defun vee/tab-map/self-insert (x)
-  (interactive "P")
-  (message "ey"))
 
 (defun vee:term/last-buffer nil
   (-find (lambda (b) (eq 'term-mode (with-current-buffer b major-mode))) (buffer-list)))
@@ -45,12 +30,16 @@
   (interactive)
   (if (eq 'term-mode major-mode)
       (popwin:close-popup-window)
-    (popwin:display-buffer-1 (or (vee:term/last-buffer) (multi-term)))))
+    (popwin:display-buffer-1 (or (vee:term/last-buffer)
+				 (save-window-excursion
+				   (call-interactively 'multi-term))))))
+
 
 (define-key global-map (kbd "C-<return>") 'vee:term/toggle)
 (define-key global-map (kbd "C-<backspace>") 'vee:term/send-last-command)
 
-(evil-define-key 'normal global-map (kbd "<tab>") 'vee/tab-map)
+(evil-define-key 'normal global-map (kbd "<tab>") 'persp-switch-quick)
+(evil-define-key 'normal global-map (kbd "<backtab>") 'persp-cycle)
 (evil-define-key 'normal global-map (kbd "C-]") 'keyboard-escape-quit)
 (evil-define-key 'normal global-map (kbd "C-\\") 'evil-jump-to-tag)
 
@@ -58,7 +47,15 @@
 (evil-define-key 'normal global-map (kbd "C-t") 'helm-projectile)
 (evil-define-key 'motion global-map (kbd ";") 'evil-ex)
 
-(evil-define-key 'visual global-map (kbd "C-d") 'mc/mark-next-like-this)
+
 (evil-define-key 'normal global-map (kbd "C-D") 'mc/mark-all-like-this-dwim)
+(evil-define-key 'visual global-map (kbd "C-D") 'mc/mark-all-like-this-dwim)
+(evil-define-key 'emacs  global-map (kbd "C-D") 'mc/mark-all-like-this-dwim)
+
+(evil-define-key 'normal global-map (kbd "C-d") 'mc/mark-next-like-this)
+(evil-define-key 'visual global-map (kbd "C-d") 'mc/mark-next-like-this)
+(evil-define-key 'emacs  global-map (kbd "C-d") 'mc/mark-next-like-this)
+
+(define-key evil-window-map "q" 'kill-this-buffer)
 
 

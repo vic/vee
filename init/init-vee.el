@@ -1,9 +1,5 @@
-(require 'popwin)
-
-(setq initial-scratch-message
-	 (propertize "Don't\nPanic\n"
-		     'font-lock-face '(:height 10.0 :inherit variable-pitch))
-	 inhibit-startup-screen t)
+(setq initial-scratch-message nil
+      inhibit-startup-screen t)
 
 (defun end-of-line-or-last-not-blank (&optional n)
   (interactive)
@@ -17,14 +13,15 @@
       (beginning-of-line) 
     (beginning-of-line n) (back-to-indentation)))
 
-(defun vee/mac-custom nil
+
+(defun vee:mac-custom nil
   (interactive)
   (setq mac-option-modifier 'meta)
   (setq mac-option-key-is-meta t)
   (setq mac-command-modifier 'control)
   (setq mac-command-key-is-meta nil))
 
-(vee/mac-custom)
+(vee:mac-custom)
 
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -58,10 +55,12 @@
 
 (set-cursor-color "cyan")
 
-
 (unless window-system
   (menu-bar-mode -1))
 
+(when window-system
+  (server-start)
+  (toggle-frame-fullscreen))
+
 (require 'helm-projectile)
 
-(server-start)
