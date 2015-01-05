@@ -8,4 +8,5 @@ Emacs setup for Evil Vic.
 
 ```shell
 git clone git@github.com:vic/vee.git ~/.emacs.d
+echo 'source ~/.emacs.d/term.sh' >>! ~/.zshrc
 ```
