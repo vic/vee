@@ -2,6 +2,7 @@
        :description "Vic emacs environment"
        :type builtin
        :depends (
+	multi-term
 	popwin
 	diminish
 	neotree

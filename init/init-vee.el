@@ -1,3 +1,5 @@
+(require 'popwin)
+
 (setq initial-scratch-message
 	 (propertize "Don't\nPanic\n"
 		     'font-lock-face '(:height 10.0 :inherit variable-pitch))
@@ -30,11 +32,11 @@
       `((".*" ,temporary-file-directory t)))
 (setq ring-bell-function (lambda nil nil))
 
-(define-key (current-global-map) [remap move-beginning-of-line] 'back-to-indentation-or-beginning)
-(define-key (current-global-map) [remap end-of-line] 'end-of-line-or-last-not-blank)
-(define-key (current-global-map) [(control ?+)] 'text-scale-adjust)
-(define-key (current-global-map) [(control ?-)] 'text-scale-adjust)
-(define-key (current-global-map) [(control ?0)] 'text-scale-adjust)
+(define-key global-map [remap move-beginning-of-line] 'back-to-indentation-or-beginning)
+(define-key global-map [remap end-of-line] 'end-of-line-or-last-not-blank)
+(define-key global-map [(control ?+)] 'text-scale-adjust)
+(define-key global-map [(control ?-)] 'text-scale-adjust)
+(define-key global-map [(control ?0)] 'text-scale-adjust)
 
 
 (column-number-mode 1)
@@ -56,9 +58,10 @@
 
 (set-cursor-color "cyan")
 
-(require 'popwin)
 
 (unless window-system
   (menu-bar-mode -1))
 
 (require 'helm-projectile)
+
+(server-start)

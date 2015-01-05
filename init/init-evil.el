@@ -30,23 +30,25 @@
   (interactive "P")
   (message "ey"))
 
+(defun vee:term/last-buffer nil
+  (-find (lambda (b) (eq 'term-mode (with-current-buffer b major-mode))) (buffer-list)))
 
-(defun vee/term/send-last-command nil
+(defun vee:term/send-last-command nil
   (interactive)
   (save-excursion
-    (popwin-term:term)
-    (with-current-buffer "*terminal*"
+    (with-current-buffer (vee:term/last-buffer)
+      (popwin:display-buffer-1 (current-buffer))
       (term-send-up)
-      (term-send-raw-string "\n"))))
+      (term-send-return))))
 
-(defun vee/term/toggle nil
+(defun vee:term/toggle nil
   (interactive)
   (if (eq 'term-mode major-mode)
       (popwin:close-popup-window)
-    (popwin-term:term)))
+    (popwin:display-buffer-1 (or (vee:term/last-buffer) (multi-term)))))
 
-(define-key global-map (kbd "C-<return>") 'vee/term/toggle)
-(define-key global-map (kbd "C-<backspace>") 'vee/term/send-last-command)
+(define-key global-map (kbd "C-<return>") 'vee:term/toggle)
+(define-key global-map (kbd "C-<backspace>") 'vee:term/send-last-command)
 
 (evil-define-key 'normal global-map (kbd "<tab>") 'vee/tab-map)
 (evil-define-key 'normal global-map (kbd "C-]") 'keyboard-escape-quit)
@@ -56,6 +58,7 @@
 (evil-define-key 'normal global-map (kbd "C-t") 'helm-projectile)
 (evil-define-key 'motion global-map (kbd ";") 'evil-ex)
 
+(evil-define-key 'visual global-map (kbd "C-d") 'mc/mark-next-like-this)
 (evil-define-key 'normal global-map (kbd "C-D") 'mc/mark-all-like-this-dwim)
 
 
