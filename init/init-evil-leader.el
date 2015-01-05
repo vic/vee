@@ -22,8 +22,7 @@
   "u" 'undo-tree-visualize
   "v" 'helm-semantic-or-imenu
   "x" 'helm-M-x
-  "w" 'evil-window-map
-   )
+  "w" 'evil-window-map)
 
 (evil-leader/set-key-for-mode 'emacs-lisp-mode
   "E" 'eval-last-sexp
