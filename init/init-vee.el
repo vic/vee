@@ -10,7 +10,7 @@
 (defun back-to-indentation-or-beginning (&optional n)
   (interactive)
   (if (= (point) (save-excursion (back-to-indentation) (point)))
-      (beginning-of-line) 
+      (beginning-of-line)
     (beginning-of-line n) (back-to-indentation)))
 
 
@@ -21,6 +21,10 @@
   (setq mac-command-modifier 'control)
   (setq mac-command-key-is-meta nil))
 
+(defun vee:untabify-buffer nil
+  (interactive)
+  (untabify (point-min) (point-max)))
+
 (vee:mac-custom)
 
 (setq backup-directory-alist
@@ -29,7 +33,8 @@
       `((".*" ,temporary-file-directory t)))
 (setq ring-bell-function (lambda nil nil))
 
-(define-key global-map [remap move-beginning-of-line] 'back-to-indentation-or-beginning)
+(define-key global-map [remap move-beginning-of-line]
+  'back-to-indentation-or-beginning)
 (define-key global-map [remap end-of-line] 'end-of-line-or-last-not-blank)
 (define-key global-map [(control ?+)] 'text-scale-adjust)
 (define-key global-map [(control ?-)] 'text-scale-adjust)
@@ -44,11 +49,15 @@
 (persp-mode 1)
 (global-auto-complete-mode 1)
 
+(setq-default indent-tabs-mode nil)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'vee:untabify-buffer)
+
 (setq sml/no-confirm-load-theme t)
 (sml/setup)
 (sml/apply-theme 'dark)
 
-(evil-mode 1) 
+(evil-mode 1)
 (global-evil-leader-mode 1)
 
 (require 'smyx-theme)
@@ -63,4 +72,3 @@
   (toggle-frame-fullscreen))
 
 (require 'helm-projectile)
-

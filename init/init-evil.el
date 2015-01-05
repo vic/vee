@@ -11,12 +11,14 @@
 (evil-set-initial-state 'grep-mode 'emacs)
 (evil-set-initial-state 'ibuffer-mode 'normal)
 (evil-set-initial-state 'neotree-mode 'motion)
+(evil-set-initial-state 'term-mode 'emacs)
 
 (global-evil-visualstar-mode)
 
 
 (defun vee:term/last-buffer nil
-  (-find (lambda (b) (eq 'term-mode (with-current-buffer b major-mode))) (buffer-list)))
+  (-find (lambda (b) (eq 'term-mode (with-current-buffer b major-mode)))
+         (buffer-list)))
 
 (defun vee:term/send-last-command nil
   (interactive)
@@ -26,13 +28,15 @@
       (term-send-up)
       (term-send-return))))
 
+
 (defun vee:term/toggle nil
   (interactive)
   (if (eq 'term-mode major-mode)
       (popwin:close-popup-window)
-    (popwin:display-buffer-1 (or (vee:term/last-buffer)
-				 (save-window-excursion
-				   (call-interactively 'multi-term))))))
+    (popwin:display-buffer-1
+     (or (vee:term/last-buffer)
+         (save-window-excursion
+           (call-interactively 'multi-term))))))
 
 
 (define-key global-map (kbd "C-<return>") 'vee:term/toggle)
@@ -57,5 +61,3 @@
 (evil-define-key 'emacs  global-map (kbd "C-d") 'mc/mark-next-like-this)
 
 (define-key evil-window-map "q" 'kill-this-buffer)
-
-
