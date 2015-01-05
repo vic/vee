@@ -31,8 +31,24 @@
   (message "ey"))
 
 
+(defun vee/term/send-last-command nil
+  (interactive)
+  (save-excursion
+    (popwin-term:term)
+    (with-current-buffer "*terminal*"
+      (term-send-up)
+      (term-send-raw-string "\n"))))
+
+(defun vee/term/toggle nil
+  (interactive)
+  (if (eq 'term-mode major-mode)
+      (popwin:close-popup-window)
+    (popwin-term:term)))
+
+(define-key global-map (kbd "C-<return>") 'vee/term/toggle)
+(define-key global-map (kbd "C-<backspace>") 'vee/term/send-last-command)
+
 (evil-define-key 'normal global-map (kbd "<tab>") 'vee/tab-map)
-;;(evil-define-key 'normal global-map (kbd "<backtab>") 'persp-cycle)
 (evil-define-key 'normal global-map (kbd "C-]") 'keyboard-escape-quit)
 (evil-define-key 'normal global-map (kbd "C-\\") 'evil-jump-to-tag)
 
@@ -41,3 +57,5 @@
 (evil-define-key 'motion global-map (kbd ";") 'evil-ex)
 
 (evil-define-key 'normal global-map (kbd "C-D") 'mc/mark-all-like-this-dwim)
+
+

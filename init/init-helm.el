@@ -5,11 +5,14 @@
 
 (defun helm-all-the-things nil
   (interactive)
-  (helm :sources '(helm-source-findutils
+  (helm :sources (append
+		  '(
+		   helm-source-projectile-files-in-all-projects-list
 		   helm-source-recentf
-		   helm-source-bookmarks
 		   helm-source-buffers-list
-		   helm-source-locate)
+		   helm-source-findutils
+		   helm-source-bookmarks
+		   helm-source-locate))
 	:buffer "*helm all the things*"))
 
 (require 'popwin)

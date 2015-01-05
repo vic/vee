@@ -1,11 +1,11 @@
-(setq evil-leader/in-all-states 1)
+(setq evil-leader/in-all-states t)
+
 
 (evil-leader/set-leader "SPC")
 (evil-leader/set-key
   "SPC" 'evil-execute-in-god-state
   "<tab>" 'persp-switch-quick-map
   "?" 'help-command
-  "a" 'persp-mode-map
   "b" 'helm-mini
   "f" 'helm-find-files
   "g" 'helm-projectile-grep
@@ -20,8 +20,8 @@
   "t" 'helm-projectile
   "u" 'undo-tree-visualize
   "v" 'helm-semantic-or-imenu
-  "w" 'evil-window-map
   "x" 'helm-M-x
+  "w" 'evil-window-map
    )
 
 (evil-leader/set-key-for-mode 'emacs-lisp-mode
