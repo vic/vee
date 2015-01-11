@@ -48,8 +48,9 @@
 (evil-define-key 'normal global-map (kbd "C-\\") 'evil-jump-to-tag)
 
 (evil-define-key 'normal global-map (kbd "t") 'evil-ace-jump-char-to-mode)
-(evil-define-key 'normal global-map (kbd "C-t") 'helm-projectile)
+(evil-define-key 'normal global-map (kbd "C-t") 'helm-all-the-things)
 (evil-define-key 'motion global-map (kbd ";") 'evil-ex)
+(evil-define-key 'motion global-map (kbd "C-e") 'evil-end-of-line)
 
 
 (evil-define-key 'normal global-map (kbd "C-D") 'mc/mark-all-like-this-dwim)
@@ -61,3 +62,4 @@
 (evil-define-key 'emacs  global-map (kbd "C-d") 'mc/mark-next-like-this)
 
 (define-key evil-window-map "q" 'kill-this-buffer)
+(define-key evil-window-map "w" 'evil-window-mru)

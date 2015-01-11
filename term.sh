@@ -10,15 +10,18 @@ if [[ ! -z "${EMACS}" ]]; then
  export EDITOR='emacsclient'
  export VISUAL='emacsclient'
 
+ prompt minimal
+
  alias e='emacsclient'
+ alias en='emacsclient -n'
  alias vim='emacsclient'
  alias vi='emacsclient'
- prompt minimal
 
  function E() {
    echo $* | xargs -II emacsclient -e '(eshell-command "I" t)'
  }
 
- alias magit='E magit-status $PWD'
+ alias magit='E magit-status'
+ alias O='E vee:open-project-session'
 
 fi

@@ -1,0 +1,3 @@
+(:name nim-mode
+       :type github
+       :pkgname "reactormonk/nim-mode")

@@ -6,14 +6,12 @@
 (defun helm-all-the-things nil
   (interactive)
   (helm :sources (append
-		  '(
-		   helm-source-projectile-files-in-all-projects-list
-		   helm-source-recentf
-		   helm-source-buffers-list
-		   helm-source-findutils
-		   helm-source-bookmarks
-		   helm-source-locate))
-	:buffer "*helm all the things*"))
+                  '(helm-source-buffers-list
+                    helm-source-recentf
+                    helm-source-projectile-files-in-all-projects-list
+                    helm-source-file-name-history
+                    helm-source-etags-select))
+        :buffer "*helm all the things*"))
 
 (require 'popwin)
 (push '("^\*helm .+\*$" :regexp t) popwin:special-display-config)

@@ -1,3 +1,5 @@
+(global-auto-complete-mode 1)
+
 (setq initial-scratch-message nil
       inhibit-startup-screen t)
 
@@ -47,7 +49,7 @@
 
 (helm-mode 1)
 (persp-mode 1)
-(global-auto-complete-mode 1)
+
 
 (setq-default indent-tabs-mode nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -72,8 +74,3 @@
   (toggle-frame-fullscreen))
 
 (require 'helm-projectile)
-
-(with-current-buffer "*scratch*"
-  (insert-image (create-image "~/.emacs.d/gnu-mad.png"))
-  (insert "(require 'evil)")
-  (goto-char (point-max)))

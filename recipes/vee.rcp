@@ -11,6 +11,7 @@
                  enh-ruby-mode
                  go-mode
                  rust-mode
+		 nim-mode
                  elixir
                  alchemist
                  projectile
@@ -26,6 +27,7 @@
                  god-mode
                  helm
                  helm-swoop
+		 helm-dash
                  evil
                  evil-args
                  evil-exchange
