@@ -11,9 +11,11 @@
                  enh-ruby-mode
                  go-mode
                  rust-mode
-		 nim-mode
+                 nim-mode
+                 markdown-mode
                  elixir
                  alchemist
+                 restclient
                  projectile
                  grizzl
                  smyx-theme
@@ -27,7 +29,7 @@
                  god-mode
                  helm
                  helm-swoop
-		 helm-dash
+                 helm-dash
                  evil
                  evil-args
                  evil-exchange
