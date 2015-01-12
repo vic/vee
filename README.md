@@ -3,7 +3,7 @@ Vee
 
 Emacs setup for Evil Vic.
 
-![evil emacs](https://raw.githubusercontent.com/vic/vee/master/gnu-mad.png "evil emacs")
+![Finish One Thing Today](https://raw.githubusercontent.com/vic/vee/master/finish.png "Finish One Thing Today")
 
 
 ```shell

@@ -74,3 +74,85 @@
   (toggle-frame-fullscreen))
 
 (require 'helm-projectile)
+
+
+(with-current-buffer (get-buffer-create "*scratch*")
+  (delete-region (point-min) (point-max))
+  (insert (concat "
+"
+
+(propertize "Finish one thing today.\n"
+ 'font-lock-face '(:height 8.0 :inherit variable-pitch))
+
+(propertize "just. one. little. thing.\n"
+ 'font-lock-face '(:height 7.0 :inherit variable-pitch))
+
+"
+\n\n
+It doesn’t have to be big.
+
+it doesn’t have to be important.
+
+it doesn’t have to be perfect.
+
+It doesn’t have to be revolutionary.
+
+It doesn’t have to be new.
+
+It doesn’t have to have bells and whistles.
+
+It doesn’t have to impress other people.
+
+It doesn’t have to mean anything.
+
+It doesn’t have to change the world.
+
+It doesn’t have follow the latest trends.
+
+it just needs to be finished.
+
+\n\n
+If it’s too big, break it into smaller chunks.
+
+If it’s too hard, break it into easier chunks.
+
+If it’s too daunting, break it into manageable chunks.
+
+If it’s too scary, face the fear head on.
+
+ship one thing today.
+
+\n\n
+If you don’t have the time, wake up 30 minutes earlier.
+
+If you don’t have the drive, get it by forming a habit.
+
+If you don’t have the knowledge, make learning today’s goal.
+
+If you don’t have the resources, start small.
+
+If you don’t have an idea, imitate something else.
+
+release it to the world.
+
+\n\n
+You will be scared.
+
+You will think it’s not important enough.
+
+You will think nobody will care.
+
+You will overestimate its importance.
+
+You will sometimes fail.
+
+\n\n
+but it’s ok, you will have something to show for it.
+then once you are done…
+
+celebrate…
+
+rest…
+
+then do the same thing again tomorrow.
+")))
