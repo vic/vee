@@ -44,6 +44,9 @@ values."
      osx
      markdown
      restclient
+     (ranger :variables
+             ranger-show-preview t
+             ranger-cleanup-on-disable t)
      vee
      )
    ;; List of additional packages that will be installed without being

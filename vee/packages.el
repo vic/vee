@@ -18,6 +18,7 @@
       ;; package names go here
       emacs
       popwin
+      term+mux
       ))
 
 ;; List of packages to exclude.
@@ -25,16 +26,26 @@
 
 (defun vee/toggle-term nil
   (interactive)
-  (if (string-equal "*fish*" (buffer-name))
+  (if (eq 'term-mode major-mode)
       (popwin:close-popup-window)
-    (or (get-buffer "*fish*")
-        (ansi-term "/usr/local/bin/fish" "fish"))
-    (popwin:display-buffer (get-buffer "*fish*") t)))
+    (term+mux-other-window)))
 
 (defun vee/init-emacs ()
   (setq truncate-lines t)
-  (spacemacs/toggle-fringe-off)
-  (global-set-key (kbd "s-\\") 'vee/toggle-term))
+  (spacemacs/toggle-fringe-off))
+
+(defun vee/init-term+mux ()
+  (require 'term+mux)
+  (setq term-buffer-maximum-size 10000)
+  (global-set-key (kbd "s-\\") 'vee/toggle-term)
+
+  (when nil add-hook 'term-mode-hook
+            (lambda()
+              (global-unset-key (kbd "C-r"))
+              (global-unset-key (kbd "C-t"))
+              (global-unset-key (kbd "C-d"))
+              (global-unset-key (kbd "C-c"))
+              )))
 
 (defun vee/init-popwin nil
   (require 'popwin)
@@ -47,7 +58,7 @@
 
   (push '(git-commit-mode :tail nil :position :bottom :height 16 :dedicated t) popwin:special-display-config)
 
-  (push '((lambda (b) (string-equal "*fish*" (buffer-name b))) :position :top :height 0.3 :dedicated t :tail nil) popwin:special-display-config)
+  (push '(term-mode :position :top :height 0.3 :dedicated t :tail nil) popwin:special-display-config)
 
   (push '(erc-mode :position :top :height 16 :dedicated t) popwin:special-display-config)
 
