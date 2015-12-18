@@ -19,10 +19,15 @@
       emacs
       popwin
       term+mux
+      editorconfig
       ))
 
 ;; List of packages to exclude.
 (setq vee-excluded-packages '())
+
+(defun vee/init-editorconfig nil
+  (require 'editorconfig)
+  (editorconfig-mode 1))
 
 (defun vee/toggle-term nil
   (interactive)

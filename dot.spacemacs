@@ -40,13 +40,13 @@ values."
      python
      elixir
      erlang
-     fish
      osx
      markdown
      restclient
      (ranger :variables
              ranger-show-preview t
              ranger-cleanup-on-disable t)
+     spacemacs-layouts
      vee
      )
    ;; List of additional packages that will be installed without being
@@ -100,13 +100,13 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
+                         spacemacs-light
+                         spacemacs-dark
+                         solarized-light
+                         solarized-dark
                          colorsarenice-dark
                          colorsarenice-light
                          cyberpunk
-                         spacemacs-dark
-                         spacemacs-light
-                         solarized-light
-                         solarized-dark
                          leuven
                          monokai
                          zenburn)
