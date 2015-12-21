@@ -20,14 +20,12 @@
       popwin
       term+mux
       editorconfig
+      sass-mode
+      yaml-mode
       ))
 
 ;; List of packages to exclude.
 (setq vee-excluded-packages '())
-
-(defun vee/init-editorconfig nil
-  (require 'editorconfig)
-  (editorconfig-mode 1))
 
 (defun vee/toggle-term nil
   (interactive)
@@ -72,6 +70,14 @@
   (push '(" *undo-tree*" :width 0.3 :position right :dedicated t) popwin:special-display-config)
 
   (push '(neotree-mode  :width 0.3 :position left :dedicated t) popwin:special-display-config))
+
+(defun vee/init-editorconfig nil
+  (require 'editorconfig)
+  (editorconfig-mode 1))
+
+(defun vee/init-sass-mode nil
+  (require 'sass-mode))
+
 
 ;; For each package, define a function vee/init-<package-name>
 ;;
