@@ -44,17 +44,22 @@
   (spacemacs/toggle-fringe-off))
 
 (defun vee/init-term+mux ()
+  (require 'term)
   (require 'term+mux)
   (setq term-buffer-maximum-size 10000)
   (global-set-key (kbd "s-SPC") (lambda nil (interactive) (vee/toggle-term "fish")))
   (global-set-key (kbd "s-<return>") (lambda nil (interactive) (vee/toggle-term "side")))
 
-  (when nil add-hook 'term-mode-hook
-            (lambda()
-              (global-unset-key (kbd "C-r"))
-              (global-unset-key (kbd "C-d"))
-              (global-unset-key (kbd "C-c"))
-              )))
+  (evil-define-key 'normal term-mode-map
+    "s-k" 'erase-buffer
+    "m c" 'term+mux-new
+    "m p" 'tab-group:prev
+    "m n" 'tab-group:next
+    "m r" 'tab-grou:rename)
+
+  (evil-define-key 'insert term-mode-map
+    "s-k" 'erase-buffer
+    "C-SPC" 'evil-execute-in-normal-state))
 
 (defun vee/init-popwin nil
   (require 'popwin)
@@ -67,8 +72,8 @@
 
   (push '(git-commit-mode :tail nil :position :bottom :height 16 :dedicated t) popwin:special-display-config)
 
-  (push '("term:fish" :position :bottom :height 0.3 :dedicated t :tail nil) popwin:special-display-config)
-  (push '("term:side" :position :right :width 0.5 :dedicated t :tail nil) popwin:special-display-config)
+  (push '("term:fish.*" :regexp t :position :bottom :height 0.3 :dedicated t :tail nil) popwin:special-display-config)
+  (push '("term:side.*" :regexp t :position :right :width 0.5 :dedicated t :tail nil) popwin:special-display-config)
 
   (push '(erc-mode :position :top :height 16 :dedicated t) popwin:special-display-config)
 
