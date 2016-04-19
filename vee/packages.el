@@ -22,30 +22,36 @@
       editorconfig
       sass-mode
       yaml-mode
+      hydandata-light-theme
+      idea-drakula-theme
+      atom-one-dark-theme
       ))
 
 ;; List of packages to exclude.
 (setq vee-excluded-packages '())
 
-(defun vee/toggle-term nil
+(defun vee/toggle-term (&optional name)
   (interactive)
   (if (eq 'term-mode major-mode)
       (popwin:close-popup-window)
-    (term+mux-other-window)))
+    (setq name (or name "fish"))
+    (term+mux-other-window
+     (or (term+mux-session name)
+         (term+mux-new-session name)))))
 
 (defun vee/init-emacs ()
-  (setq truncate-lines t)
+  (spacemacs/toggle-truncate-lines-off)
   (spacemacs/toggle-fringe-off))
 
 (defun vee/init-term+mux ()
   (require 'term+mux)
   (setq term-buffer-maximum-size 10000)
-  (global-set-key (kbd "s-\\") 'vee/toggle-term)
+  (global-set-key (kbd "s-SPC") (lambda nil (interactive) (vee/toggle-term "fish")))
+  (global-set-key (kbd "s-<return>") (lambda nil (interactive) (vee/toggle-term "side")))
 
   (when nil add-hook 'term-mode-hook
             (lambda()
               (global-unset-key (kbd "C-r"))
-              (global-unset-key (kbd "C-t"))
               (global-unset-key (kbd "C-d"))
               (global-unset-key (kbd "C-c"))
               )))
@@ -61,7 +67,8 @@
 
   (push '(git-commit-mode :tail nil :position :bottom :height 16 :dedicated t) popwin:special-display-config)
 
-  (push '(term-mode :position :top :height 0.3 :dedicated t :tail nil) popwin:special-display-config)
+  (push '("term:fish" :position :bottom :height 0.3 :dedicated t :tail nil) popwin:special-display-config)
+  (push '("term:side" :position :right :width 0.5 :dedicated t :tail nil) popwin:special-display-config)
 
   (push '(erc-mode :position :top :height 16 :dedicated t) popwin:special-display-config)
 
@@ -77,6 +84,9 @@
 
 (defun vee/init-sass-mode nil
   (require 'sass-mode))
+
+(defun vee/init-yaml-mode nil
+  (require 'yaml-mode))
 
 
 ;; For each package, define a function vee/init-<package-name>

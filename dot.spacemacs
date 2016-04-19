@@ -29,9 +29,6 @@ values."
      git
      ;; markdown
      ;; org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
      ;; spell-checking
      syntax-checking
      version-control
@@ -47,6 +44,11 @@ values."
              ranger-show-preview t
              ranger-cleanup-on-disable t)
      spacemacs-layouts
+     speed-reading
+     (shell :variables
+            shell-default-shell 'multi-term)
+     restclient
+     prodigy
      vee
      )
    ;; List of additional packages that will be installed without being
@@ -100,6 +102,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
+                         dracula
                          spacemacs-light
                          spacemacs-dark
                          solarized-light
@@ -109,7 +112,15 @@ values."
                          cyberpunk
                          leuven
                          monokai
-                         zenburn)
+                         zenburn
+                         underwater
+                         sunny-day
+                         ritchie
+                         wilson
+                         soothe
+                         phoenix-dark-pink
+                         organic-green
+                         )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -118,7 +129,7 @@ values."
                                :size 16
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 0.8)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The leader key accessible in `emacs state' and `insert state'
@@ -181,7 +192,7 @@ values."
    dotspacemacs-loading-progress-bar t
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
-   dotspacemacs-fullscreen-at-startup t
+   dotspacemacs-fullscreen-at-startup nil
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
    dotspacemacs-fullscreen-use-non-native nil
@@ -256,7 +267,8 @@ layers configuration. You are free to put any user code."
     ("c86f868347919095aa44d2a6129dd714cbcf8feaa88ba954f636295b14ceff8f" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" default)))
  '(paradox-github-token "7ff36144b27a8d1c325f400621301c0a79c4f31f")
  '(rainbow-identifiers-cie-l*a*b*-lightness 70)
- '(rainbow-identifiers-cie-l*a*b*-saturation 20))
+ '(rainbow-identifiers-cie-l*a*b*-saturation 20)
+ '(truncate-lines t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
