@@ -35,8 +35,10 @@ values."
      themes-megapack
      ruby
      python
+     elm
      elixir
      erlang
+     haskell
      osx
      markdown
      restclient
@@ -125,7 +127,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Inconsolata"
+   dotspacemacs-default-font '("Inconsolata" ;;"Fira Code Light"
                                :size 16
                                :weight normal
                                :width normal
@@ -252,7 +254,11 @@ user code."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+  ;;(vee/firacode)
+
+  (golden-ratio-mode t)
   )
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
