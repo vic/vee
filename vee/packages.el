@@ -56,10 +56,11 @@
   (evil-define-key 'god global-map [escape] 'evil-god-state-bail))
 
 (defun vee/init ()
-  (vee/init--popwin)
   )
 
 (defun vee/user ()
+  (vee/init--popwin)
+
   (spacemacs/toggle-truncate-lines-off)
   (spacemacs/toggle-fringe-off)
   (golden-ratio-mode t)
@@ -87,16 +88,22 @@
 
   (evil-leader/set-key (kbd "f f") 'ido-find-file)
   (evil-global-set-key 'normal (kbd "U") 'undo-tree-redo)
-  (evil-global-set-key 'normal (kbd "s-\[") 'evil-jump-backward)
-  (evil-global-set-key 'normal (kbd "s-\]") 'evil-jump-forward)
+  (evil-global-set-key 'normal (kbd "s-k") 'evil-jump-backward)
+  (evil-global-set-key 'normal (kbd "s-j") 'evil-jump-forward)
 
   (evil-global-set-key 'normal (kbd "Q") 'kill-this-buffer)
   (evil-leader/set-key (kbd "b #") 'server-edit)
+
+  (evil-global-set-key 'insert (kbd "<backtab>") 'company-complete-common-or-cycle)
+  (evil-global-set-key 'replace (kbd "<backtab>") 'company-complete-common-or-cycle)
 
   ;;(evil-leader/set-key (kbd "b #") 'server-buffer-done)
   ;;(evil-leader/set-key (kbd "b q") 'kill-buffer-if-not-modified)
   ;;(evil-leader/set-key (kbd "b Q") 'kill-buffer)
   ;;(evil-leader/set-key (kbd "b k") 'kill-buffer-and-window)
+
+  (global-centered-cursor-mode t)
+
 
   )
 
