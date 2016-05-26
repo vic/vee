@@ -16,7 +16,6 @@
 (setq vee-packages
     '(
       ;; package names go here
-      pabbrev
       popwin
       term+mux
       editorconfig
@@ -49,16 +48,21 @@
     (popwin:stick-popup-window)))
 
 (defun vee/init-evil-god-state ()
-  (require 'evil-god-state)
+  ;;(require 'evil-god-state)
+
   (evil-leader/set-key (kbd "ESC") 'evil-execute-in-god-state)
   (add-hook 'evil-god-state-entry-hook (lambda () (diminish 'god-local-mode)))
   (add-hook 'evil-god-state-exit-hook (lambda () (diminish-undo 'god-local-mode)))
   (evil-define-key 'god global-map [escape] 'evil-god-state-bail))
 
-(defun vee/init-emacs ()
+(defun vee/init ()
+  (vee/init--popwin)
+  )
+
+(defun vee/user ()
   (spacemacs/toggle-truncate-lines-off)
   (spacemacs/toggle-fringe-off)
-
+  (golden-ratio-mode t)
 
   (setq-default
    truncate-lines t
@@ -72,7 +76,7 @@
    web-mode-markup-indent-offset 2
    css-indent-offset 2
    js-indent-level 2
-   elm-indent-offset 2
+   elm-indent-offset 4
    spacemacs-indent-sensitive-modes (add-to-list 'spacemacs-indent-sensitive-modes 'elm-mode)
    )
 
@@ -82,8 +86,18 @@
   (editorconfig-mode t)
 
   (evil-leader/set-key (kbd "f f") 'ido-find-file)
+  (evil-global-set-key 'normal (kbd "U") 'undo-tree-redo)
   (evil-global-set-key 'normal (kbd "s-\[") 'evil-jump-backward)
   (evil-global-set-key 'normal (kbd "s-\]") 'evil-jump-forward)
+
+  (evil-global-set-key 'normal (kbd "Q") 'kill-this-buffer)
+  (evil-leader/set-key (kbd "b #") 'server-edit)
+
+  ;;(evil-leader/set-key (kbd "b #") 'server-buffer-done)
+  ;;(evil-leader/set-key (kbd "b q") 'kill-buffer-if-not-modified)
+  ;;(evil-leader/set-key (kbd "b Q") 'kill-buffer)
+  ;;(evil-leader/set-key (kbd "b k") 'kill-buffer-and-window)
+
   )
 
 (defun vee/init-term+mux ()
@@ -106,7 +120,7 @@
     (kbd "s-,") term+mux-map)
   )
 
-(defun vee/init-popwin nil
+(defun vee/init--popwin nil
   (require 'popwin)
   (popwin-mode 1)
   (setq display-buffer-function 'popwin:display-buffer)
@@ -133,6 +147,7 @@
 
 
 (defun vee/firacode nil
+  "Enable code ligatures on firacode"
   (mac-auto-operator-composition-mode)
   (when (window-system)
     (set-default-font "Fira Code Light"))
