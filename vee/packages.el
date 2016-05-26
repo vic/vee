@@ -25,6 +25,7 @@
       idea-drakula-theme
       atom-one-dark-theme
       evil-god-state
+      counsel-dash
       emacs
       ))
 
@@ -104,7 +105,20 @@
 
 
   (global-centered-cursor-mode 1)
+  )
 
+(defun vee/init-counsel-dash nil
+
+  (setq-default counsel-dash-docsets-path (expand-file-name "~/.docsets")
+                counsel-dash-common-docsets '()
+                counsel-dash-browser-func 'browse-url
+  )
+
+  (evil-leader/set-key (kbd "d h") 'counsel-dash)
+
+  (add-hook 'emacs-lisp-mode-hook (lambda () (setq-local counsel-dash-docsets '("Emacs Lisp"))))
+  (add-hook 'elixir-mode-hook (lambda () (setq-local counsel-dash-docsets '("Elixir"))))
+  (add-hook 'python-mode-hook (lambda () (setq-local counsel-dash-docsets '("Python 2"))))
 
   )
 
