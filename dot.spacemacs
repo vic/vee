@@ -62,7 +62,28 @@ values."
      prodigy
      vee
      ivy
+     emoji
+
+     (erc :variables
+          erc-server-list
+          '(("irc.freenode.net"
+             :port "6697"
+             :ssl t
+             :password nil
+             :nick "vborja")
+            ("irc.gitter.im"
+             :port "6667"
+             :ssl t
+             :password nil
+             :nick "vic")
+           ("irc.net"
+             :port "6697"
+             :ssl t
+             :password nil
+             :nick "vborja")))
+
      )
+
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the

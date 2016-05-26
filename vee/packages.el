@@ -102,7 +102,8 @@
   ;;(evil-leader/set-key (kbd "b Q") 'kill-buffer)
   ;;(evil-leader/set-key (kbd "b k") 'kill-buffer-and-window)
 
-  (global-centered-cursor-mode t)
+
+  (global-centered-cursor-mode 1)
 
 
   )
