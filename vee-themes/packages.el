@@ -31,6 +31,7 @@
 
 (defconst vee-themes-packages
   '(
+    base16-theme
     atom-one-dark-theme
     hydandata-light-theme
     )

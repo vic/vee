@@ -3,7 +3,7 @@
 ;;
 ;; Vic's Emacs Environment distribution layers
 ;;
-(configuration-layer/declare-layers
+(configuration-layer/declare-used-layers
  '(
    ;; spacemacs
    osx
