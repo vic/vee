@@ -3,7 +3,7 @@
 ;;
 ;; Vic's Emacs Environment distribution layers
 ;;
-(configuration-layer/declare-used-layers
+(configuration-layer/declare-layers
  '(
    ;; spacemacs
    osx
@@ -28,7 +28,7 @@
    html
    emacs-lisp
    ruby
-   python
+   ;; python
    elm
    elixir
    erlang
