@@ -67,6 +67,9 @@ Each entry is either:
 
 
 (defun vee-popwin/special-buffers nil
+  nil)
+
+(defun vee-popwin/bad-apples nil
   (push '("Anaconda" :regexp t :tail nil :position :bottom :height 16 :dedicated t) popwin:special-display-config)
   (push '("alchemist" :regexp t :tail nil :position :bottom :height 16 :dedicated t) popwin:special-display-config)
   (push '("magit" :regexp t :tail nil :position :bottom :height 16 :dedicated t) popwin:special-display-config)
