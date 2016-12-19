@@ -58,28 +58,22 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
-
-(defun vee-popwin/post-init-popwin nil
-  (use-package popwin
-    :config
-    (vee-popwin/special-buffers))
-  (require 'popwin))
-
+(defun vee-popwin/pre-init-popwin ()
+  (spacemacs|use-package-add-hook popwin
+    :post-config
+    (vee-popwin/special-buffers)))
 
 (defun vee-popwin/special-buffers nil
-  nil)
-
-(defun vee-popwin/bad-apples nil
-  (push '("Anaconda" :regexp t :tail nil :position :bottom :height 16 :dedicated t) popwin:special-display-config)
-  (push '("alchemist" :regexp t :tail nil :position :bottom :height 16 :dedicated t) popwin:special-display-config)
-  (push '("magit" :regexp t :tail nil :position :bottom :height 16 :dedicated t) popwin:special-display-config)
-  (push '(git-commit-mode :tail nil :position :bottom :height 16 :dedicated t) popwin:special-display-config)
-  (push '("term:fish.*" :regexp t :position :top :height 0.3 :dedicated t :tail nil) popwin:special-display-config)
-  (push '("term:side.*" :regexp t :position :right :width 0.5 :dedicated t :tail nil) popwin:special-display-config)
-  (push '(erc-mode :position :top :height 16 :dedicated t) popwin:special-display-config)
+  (push '("Anaconda" :regexp t :tail nil :position bottom :height 16 :dedicated t) popwin:special-display-config)
+  (push '(alchemist-mode t :tail nil :position bottom :height 16 :dedicated t) popwin:special-display-config)
+  (push '("magit" :regexp t :tail nil :position bottom :height 16 :dedicated t) popwin:special-display-config)
+  (push '(git-commit-mode :tail nil :position bottom :height 16 :dedicated t) popwin:special-display-config)
+  (push '("term:fish.*" :regexp t :position top :height 0.3 :dedicated t :tail nil) popwin:special-display-config)
+  (push '("term:side.*" :regexp t :position right :width 0.5 :dedicated t :tail nil) popwin:special-display-config)
+  (push '(erc-mode :position top :height 16 :dedicated t) popwin:special-display-config)
   (push 'apropos-mode popwin:special-display-config)
   (push '(" *undo-tree*" :width 0.3 :position right :dedicated t) popwin:special-display-config)
-  (push '(neotree-mode  :width 0.3 :position left :dedicated t) popwin:special-display-config))
+  )
 
 
 ;;; packages.el ends here

@@ -27,13 +27,18 @@
    typescript
    html
    emacs-lisp
+   idris
    ruby
-   ;; python
+   python
+   clojure
    elm
+   coq
    elixir
    erlang
    haskell
    markdown
+   shell-scripts
+   syntax-checking
 
    ;; utils
    dash
@@ -70,5 +75,6 @@
    vee-ui
    vee-yaml
    vee-dash
+   vee-neo4j
 
    ))

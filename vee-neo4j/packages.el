@@ -1,8 +1,8 @@
-;;; packages.el --- vee-dash layer packages file for Spacemacs.
+;;; packages.el --- vee-neo4j layer packages file for Spacemacs.
 ;;
 ;; Copyright (c) 2012-2016 Sylvain Benner & Contributors
 ;;
-;; Author: vic <vic@mjolnir>
+;; Author: vic <vic@malevich.local>
 ;; URL: https://github.com/syl20bnr/spacemacs
 ;;
 ;; This file is not part of GNU Emacs.
@@ -18,20 +18,21 @@
 ;;
 ;;
 ;; Briefly, each package to be installed or configured by this layer should be
-;; added to `vee-dash-packages'. Then, for each package PACKAGE:
+;; added to `vee-neo4j-packages'. Then, for each package PACKAGE:
 ;;
 ;; - If PACKAGE is not referenced by any other Spacemacs layer, define a
-;;   function `vee-dash/init-PACKAGE' to load and initialize the package.
+;;   function `vee-neo4j/init-PACKAGE' to load and initialize the package.
 
 ;; - Otherwise, PACKAGE is already referenced by another Spacemacs layer, so
-;;   define the functions `vee-dash/pre-init-PACKAGE' and/or
-;;   `vee-dash/post-init-PACKAGE' to customize the package as it is loaded.
+;;   define the functions `vee-neo4j/pre-init-PACKAGE' and/or
+;;   `vee-neo4j/post-init-PACKAGE' to customize the package as it is loaded.
 
 ;;; Code:
 
-(defconst vee-dash-packages
-  '(counsel-dash)
-  "The list of Lisp packages required by the vee-dash layer.
+(defconst vee-neo4j-packages
+  '(cypher-mode)
+  "The list of Lisp packages required by the vee-neo4j layer.
+
 
 Each entry is either:
 
@@ -58,19 +59,9 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
-(defun vee-dash/pre-init-counsel-dash nil
-  (spacemacs|use-package-add-hook counsel-dash
-    :commands (counsel-dash)
-    :init
-    (evil-leader/set-key (kbd "d h") 'counsel-dash)
-    :config
-    (setq-default counsel-dash-docsets-path (expand-file-name "~/.docsets")
-                  counsel-dash-common-docsets '()
-                  counsel-dash-browser-func 'browse-url
-                  )
-    (add-hook 'emacs-lisp-mode-hook (lambda () (setq-local counsel-dash-docsets '("Emacs Lisp"))))
-    (add-hook 'elixir-mode-hook (lambda () (setq-local counsel-dash-docsets '("Elixir"))))
-    (add-hook 'python-mode-hook (lambda () (setq-local counsel-dash-docsets '("Python 2"))))
+(defun vee-neo4j/pre-init-cypher-mode nil
+  (spacemacs|use-package-add-hook cypher-mode
+    :mode "\\.cypher\\'"
     ))
 
 ;;; packages.el ends here
