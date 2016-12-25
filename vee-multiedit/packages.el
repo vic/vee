@@ -1,8 +1,8 @@
-;;; packages.el --- vee-themes layer packages file for Spacemacs.
+;;; packages.el --- vee-multiedit layer packages file for Spacemacs.
 ;;
 ;; Copyright (c) 2012-2016 Sylvain Benner & Contributors
 ;;
-;; Author: vic <vic@mjolnir>
+;; Author: vic <vic@malevich.local>
 ;; URL: https://github.com/syl20bnr/spacemacs
 ;;
 ;; This file is not part of GNU Emacs.
@@ -18,30 +18,22 @@
 ;;
 ;;
 ;; Briefly, each package to be installed or configured by this layer should be
-;; added to `vee-themes-packages'. Then, for each package PACKAGE:
+;; added to `vee-multiedit-packages'. Then, for each package PACKAGE:
 ;;
 ;; - If PACKAGE is not referenced by any other Spacemacs layer, define a
-;;   function `vee-themes/init-PACKAGE' to load and initialize the package.
+;;   function `vee-multiedit/init-PACKAGE' to load and initialize the package.
 
 ;; - Otherwise, PACKAGE is already referenced by another Spacemacs layer, so
-;;   define the functions `vee-themes/pre-init-PACKAGE' and/or
-;;   `vee-themes/post-init-PACKAGE' to customize the package as it is loaded.
+;;   define the functions `vee-multiedit/pre-init-PACKAGE' and/or
+;;   `vee-multiedit/post-init-PACKAGE' to customize the package as it is loaded.
 
 ;;; Code:
 
-(defconst vee-themes-packages
+(defconst vee-multiedit-packages
   '(
-    (rebecca-theme :location (recipe
-                             :fetcher github
-                             :repo "vic/rebecca-theme"
-                             :files (:defaults)))
-    base16-theme
-    atom-one-dark-theme
-    hydandata-light-theme
-    all-the-icons
-    doom-themes
+    evil-multiedit
     )
-  "The list of Lisp packages required by the vee-themes layer.
+  "The list of Lisp packages required by the vee-multiedit layer.
 
 Each entry is either:
 
@@ -68,11 +60,10 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
-(defun vee-themes/init-rebecca-theme nil nil)
-(defun vee-themes/init-atom-one-dark-theme nil nil)
-(defun vee-themes/init-base16-theme nil nil)
-(defun vee-themes/init-hydandata-light-theme nil nil)
-(defun vee-themes/init-all-the-icons nil nil)
-(defun vee-themes/init-doom-themes nil nil)
+
+(defun vee-multiedit/init-evil-multiedit nil
+  (use-package evil-multiedit
+    :config
+    (evil-multiedit-default-keybinds)))
 
 ;;; packages.el ends here

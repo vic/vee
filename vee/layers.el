@@ -76,5 +76,6 @@
    vee-yaml
    vee-dash
    vee-neo4j
+   vee-multiedit
 
    ))
