@@ -33,7 +33,8 @@
   '(
     (rebecca-theme :location (recipe
                              :fetcher github
-                             :repo "vic/rebecca-theme"))
+                             :repo "vic/rebecca-theme"
+                             :files (:defaults)))
     base16-theme
     atom-one-dark-theme
     hydandata-light-theme
@@ -67,8 +68,10 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
-;; define programmatically the init functions
-(dolist (pkg vee-themes-packages)
-  (eval `(defun ,(intern (format "vee-themes/init-%S" pkg)) nil)))
+(defun vee-themes/init-rebecca-theme nil nil)
+(defun vee-themes/init-base16-theme nil nil)
+(defun vee-themes/init-hydandata-light-theme nil nil)
+(defun vee-themes/init-all-the-icons nil nil)
+(defun vee-themes/init-doom-themes nil nil)
 
 ;;; packages.el ends here
