@@ -31,9 +31,14 @@
 
 (defconst vee-themes-packages
   '(
+    (rebecca-theme :location (recipe
+                             :fetcher github
+                             :repo "vic/rebecca-theme"))
     base16-theme
     atom-one-dark-theme
     hydandata-light-theme
+    all-the-icons
+    doom-themes
     )
   "The list of Lisp packages required by the vee-themes layer.
 
