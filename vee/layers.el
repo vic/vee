@@ -12,8 +12,8 @@
    version-control
    themes-megapack
    (auto-completion :variables
-                    auto-completion-return-key-behavior 'complete
-                    auto-completion-tab-key-behavior 'cycle
+                    auto-completion-return-key-behavior nil
+                    auto-completion-tab-key-behavior 'complete
                     auto-completion-complete-with-key-sequence "jj"
                     auto-completion-complete-with-key-sequence-delay 0.1
                     auto-completion-private-snippets-directory nil
@@ -41,13 +41,15 @@
    syntax-checking
 
    ;; utils
-   dash
+   ;;dash
    git
    restclient
    emoji
 
    (shell :variables
-          shell-default-shell 'multi-term)
+          shell-default-shell 'multi-term
+          shell-default-term-shell "/usr/bin/fish"
+          shell-enable-smart-eshell t)
 
    (erc :variables
         erc-server-list
