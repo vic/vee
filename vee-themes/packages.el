@@ -31,10 +31,6 @@
 
 (defconst vee-themes-packages
   '(
-    (rebecca-theme :location (recipe
-                             :fetcher github
-                             :repo "vic/rebecca-theme"
-                             :files (:defaults)))
     base16-theme
     atom-one-dark-theme
     hydandata-light-theme
@@ -68,7 +64,6 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
-(defun vee-themes/init-rebecca-theme nil nil)
 (defun vee-themes/init-atom-one-dark-theme nil nil)
 (defun vee-themes/init-base16-theme nil nil)
 (defun vee-themes/init-hydandata-light-theme nil nil)
