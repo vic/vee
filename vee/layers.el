@@ -31,6 +31,9 @@
    ruby
    python
    clojure
+   racket
+   ocaml
+   purescript
    elm
    coq
    elixir
