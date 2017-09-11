@@ -30,23 +30,26 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
+(defun vee-treemacs/init-treemacs-evil nil
+  (use-package treemacs-evil
+    :ensure t
+    :demand t))
+
+(defun vee-treemacs/init-treemacs-projectile nil
+  (use-package treemacs-projectile
+    :config
+    (setq treemacs-header-function #'treemacs-projectile-create-header)
+    :bind (:map spacemacs-default-map
+                 ("pT" . treemacs-projectile)
+                 ("pt" . treemacs-projectile-toggle))))
+
+
 (defun vee-treemacs/init-treemacs nil
   (use-package treemacs
     :ensure t
     :defer t
     :config
     (progn
-      (use-package treemacs-evil
-        :ensure t
-        :demand t)
-
-      (use-package treemacs-projectile
-        :config
-        (setq treemacs-header-function #'treemacs-create-header-projectile)
-        (:bind :map spacemacs-default-map
-               ("pT" . treemacs-projectile)
-               ("pt" . treemacs-projectile-toggle)))
-
       (setq treemacs-follow-after-init          t
             treemacs-width                      35
             treemacs-indentation                2
@@ -68,8 +71,7 @@ Each entry is either:
           :map spacemacs-default-map
           ("ft"    . treemacs-toggle)
           ("fT"    . treemacs)
-          ("f C-t" . treemacs-find-file)))
-  )
+          ("f C-t" . treemacs-find-file))))
 
 
 ;;; packages.el ends here
