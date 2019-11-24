@@ -6,20 +6,13 @@
 (configuration-layer/declare-layers
  '(
    ;; spacemacs
+   nixos
    osx
    better-defaults
    syntax-checking
    version-control
    themes-megapack
-   (auto-completion :variables
-                    auto-completion-return-key-behavior nil
-                    auto-completion-tab-key-behavior 'complete
-                    auto-completion-complete-with-key-sequence "jj"
-                    auto-completion-complete-with-key-sequence-delay 0.1
-                    auto-completion-private-snippets-directory nil
-                    auto-completion-enable-snippets-in-popup t
-                    auto-completion-enable-help-tooltip t
-                    auto-completion-enable-sort-by-usage t)
+   auto-completion
 
    ;; prog-mode
    lua
@@ -29,6 +22,8 @@
    emacs-lisp
    idris
    ruby
+   rust
+   sql
    python
    clojure
    racket
@@ -40,11 +35,16 @@
    erlang
    haskell
    markdown
+   (scala :variables
+          scala-backend nil ; 'scala-metals
+          scala-auto-start-backend nil
+          scala-auto-insert-asterisk-in-comments t
+          scala-enable-eldoc nil)
    shell-scripts
    syntax-checking
 
    ;; utils
-   ;;dash
+   dash
    git
    restclient
    emoji
@@ -73,15 +73,15 @@
            :nick "vborja")))
 
    ;; vee layers
-   vee-popwin
-   vee-editorconfig
-   vee-term+mux
+   ;; vee-popwin
+   ;; vee-editorconfig
+   ;; vee-term+mux
    vee-themes
    vee-ui
-   vee-yaml
-   vee-dash
-   vee-neo4j
-   vee-multiedit
-   vee-treemacs
+   ;; vee-yaml
+   ;; vee-dash
+   ;; vee-neo4j
+   ;; vee-multiedit
+   ;; vee-treemacs
 
    ))

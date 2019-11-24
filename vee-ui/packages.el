@@ -30,7 +30,13 @@
 ;;; Code:
 
 (defconst vee-ui-packages
-  '(emacs golden-ratio)
+  '(emacs
+    golden-ratio
+    evil-snipe
+    doom-modeline
+    ace-jump-mode
+    (mini-modeline :location (recipe :repo "kiennq/emacs-mini-modeline" :fetcher github))
+    )
   "The list of Lisp packages required by the vee-ui layer.
 
 Each entry is either:
@@ -58,9 +64,27 @@ Each entry is either:
       - A list beginning with the symbol `recipe' is a melpa
         recipe.  See: https://github.com/milkypostman/melpa#recipe-format")
 
+(defun vee-ui/init-mini-modeline nil
+  nil
+  )
+
+(defun vee-ui/post-init-doom-modeline nil
+  (doom-modeline-mode 1))
+
 (defun vee-ui/post-init-golden-ratio nil
   (require 'golden-ratio)
   (golden-ratio-mode 1))
+
+(defun vee-ui/init-evil-snipe nil
+  (evil-snipe-override-mode)
+  (evil-global-set-key 'motion (kbd "g s") 'evil-snipe-s)
+  (evil-global-set-key 'motion (kbd "g S") 'evil-snipe-S)
+  )
+
+(defun vee-ui/init-ace-jump-mode nil
+  (evil-global-set-key 'motion (kbd "g L") 'evil-ace-jump-line-mode)
+  (evil-global-set-key 'motion (kbd "g W") 'evil-ace-jump-word-mode)
+  )
 
 (defun vee-ui/init-emacs nil
   (toggle-truncate-lines -1)
@@ -69,17 +93,23 @@ Each entry is either:
   (setq-default
    truncate-lines t
    evil-shift-width 2
-   git-magit-status-fullscreen nil)
+   ;; git-magit-status-fullscreen nil
+   )
 
-  (evil-global-set-key 'normal (kbd "U") 'undo-tree-redo)
-  (evil-global-set-key 'normal (kbd "s-h") 'evil-jump-backward)
-  (evil-global-set-key 'normal (kbd "s-l") 'evil-jump-forward)
-  (evil-global-set-key 'normal (kbd "s-j") 'spacemacs/evil-smart-goto-definition)
-  (evil-global-set-key 'normal (kbd "s-k") 'spacemacs/evil-smart-doc-lookup)
+  (evil-global-set-key 'motion (kbd "U") 'undo-tree-redo)
+  (evil-global-set-key 'motion (kbd "s-h") 'evil-jump-backward)
+  (evil-global-set-key 'motion (kbd "s-l") 'evil-jump-forward)
+  (evil-global-set-key 'motion (kbd "s-j") 'spacemacs/evil-smart-goto-definition)
+  (evil-global-set-key 'motion (kbd "s-k") 'spacemacs/evil-smart-doc-lookup)
 
-  (evil-global-set-key 'normal (kbd "Q") 'kill-this-buffer)
+  (evil-global-set-key 'motion (kbd "Q") 'kill-this-buffer)
   (evil-leader/set-key (kbd "b #") 'server-edit)
 
+  (evil-global-set-key 'motion (kbd "H-/") 'helm-multi-swoop-all)
+  (evil-global-set-key 'motion (kbd "H-]") 'evil-jump-forward)
+  (evil-global-set-key 'motion (kbd "H-[") 'evil-jump-backward)
+  (evil-global-set-key 'motion (kbd "H-b") 'dumb-jump-go)
+  (evil-global-set-key 'motion (kbd "<backtab>") 'dumb-jump-quick-look)
   (evil-global-set-key 'insert (kbd "<backtab>") 'company-complete-common-or-cycle)
   (evil-global-set-key 'replace (kbd "<backtab>") 'company-complete-common-or-cycle)
   )
