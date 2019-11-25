@@ -93,7 +93,6 @@ Each entry is either:
   (setq-default
    truncate-lines t
    evil-shift-width 2
-   ;; git-magit-status-fullscreen nil
    )
 
   (evil-global-set-key 'motion (kbd "U") 'undo-tree-redo)

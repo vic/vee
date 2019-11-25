@@ -45,7 +45,8 @@
 
    ;; utils
    dash
-   git
+   (git :variables
+        git-magit-status-fullscreen t)
    restclient
    emoji
 
